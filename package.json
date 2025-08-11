@@ -1,0 +1,26 @@
+{
+  "name": "i18n-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "#content 자동 번역 및 동기화 스크립트",
+  "scripts": {
+    "i18n": "node scripts/i18n-sync.js --from kor --to chn,vtn --root $(pwd)",
+    "i18n:chn": "node scripts/i18n-sync.js --from kor --to chn --root $(pwd)",
+    "i18n:vtn": "node scripts/i18n-sync.js --from kor --to vtn --root $(pwd)",
+    "i18n:dry": "node scripts/i18n-sync.js --from kor --to chn,vtn --root $(pwd) --dry-run",
+    "i18n:argos": "node scripts/i18n-sync.js --from kor --to chn,vtn --provider argos --node-concurrency 1 --req-interval-ms 0 --root $(pwd)",
+    "i18n:argos:one": "node scripts/i18n-sync.js --from kor --to chn --provider argos --node-concurrency 1 --req-interval-ms 0 --root $(pwd) --files kor/esg/csm/csm-strategy.html",
+    "i18n:libre": "node scripts/i18n-sync.js --from kor --to chn,vtn --provider libre --libre-url http://localhost:5000 --node-concurrency 1 --req-interval-ms 0 --root $(pwd)",
+    "i18n:libre:one": "node scripts/i18n-sync.js --from kor --to chn --provider libre --libre-url http://localhost:5000 --node-concurrency 1 --req-interval-ms 0 --root $(pwd) --files kor/esg/csm/csm-strategy.html"
+  },
+  "dependencies": {
+    "@vitalets/google-translate-api": "^9.2.0",
+    "cheerio": "^1.0.0",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "node-fetch": "^3.3.2",
+    "p-limit": "^5.0.0",
+    "yargs": "^17.7.2"
+  }
+}
